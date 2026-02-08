@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chocolate Day 🍫</title>
+<title>Chocolate Day Surprise 🍫</title>
 <style>
   body {
-    background: #fff0f5; /* light pink */
+    background: #fff0f5;
     font-family: 'Arial', sans-serif;
     text-align: center;
-    color: #8B4513; /* chocolate brown */
+    color: #8B4513;
     overflow-x: hidden;
     padding: 50px;
   }
@@ -24,7 +24,7 @@
   a.button {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #D2691E; /* chocolate color */
+    background-color: #D2691E;
     color: #fff;
     text-decoration: none;
     border-radius: 15px;
@@ -38,14 +38,13 @@
   img.main-choco {
     width: 180px;
     margin-top: 20px;
+    display: none;
     animation: bounce 2s infinite;
   }
   @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
   }
-
-  /* Falling chocolates animation */
   .choco {
     position: fixed;
     top: -50px;
@@ -61,21 +60,26 @@
 <body>
 
 <h1>Happy Chocolate Day! 🍫</h1>
-<p>Heyy Inuu 💗😽<br>Sending you some sweetness to make your day special!</p>
+<p id="message">Hey Nayuu 😄💖<br>Sending you some sweetness to make your day special!</p>
 
-<a class="button" onclick="openSurprise()">Open Your Surprise</a>
+<a class="button" onclick="openSurprise()">Click for a Surprise!</a>
 
 <br>
-<img class="main-choco" src="https://i.imgur.com/3sKXK8q.png" alt="Chocolate">
+<img class="main-choco" src="https://i.imgur.com/3sKXK8q.png" alt="Chocolate" id="chocoImage">
 
 <script>
-  // Function for surprise
   function openSurprise() {
-    alert("🍫 Surprise! Chocolate Day wishes for you! 💖");
+    // Change the message
+    const msg = document.getElementById('message');
+    msg.innerHTML = "Surprise! 🍫💖 Hope this makes your Chocolate Day sweeter!";
+    
+    // Show main chocolate image
+    const choco = document.getElementById('chocoImage');
+    choco.style.display = 'block';
   }
 
-  // Create falling chocolates
-  const chocoCount = 10;
+  // Falling chocolates
+  const chocoCount = 15;
   for(let i=0;i<chocoCount;i++){
     const choco = document.createElement('img');
     choco.src = 'https://i.imgur.com/3sKXK8q.png';
